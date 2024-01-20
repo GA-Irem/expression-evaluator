@@ -1,0 +1,12 @@
+{
+  "firstName": "JOHN",
+  "lastName": "DOE",
+  "address": {
+    "city": "Chicago",
+    "zipCode": 1234,
+    "street": "56th",
+    "houseNumber": 2345
+  },
+  "salary": 99,
+  "type": "BUSINESS"
+}

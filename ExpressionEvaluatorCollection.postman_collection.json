@@ -1,0 +1,1245 @@
+{
+	"info": {
+		"_postman_id": "96b1f7eb-f537-4623-8532-642cf28520bc",
+		"name": "ExpressionEvaluatorCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9715260",
+		"_collection_link": "https://solar-robot-31978.postman.co/workspace/ODA-CA~087845c2-506e-4fed-92a4-2b063d3977be/collection/9715260-96b1f7eb-f537-4623-8532-642cf28520bc?action=share&source=collection_link&creator=9715260"
+	},
+	"item": [
+		{
+			"name": "Save Expression",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var expression= JSON.parse(responseBody);",
+							"console.log(expression);",
+							"postman.setGlobalVariable(\"expressionName\", expression.Data.name);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "wise",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "wise",
+						"type": "text"
+					},
+					{
+						"key": "client_id",
+						"value": "eaetirk",
+						"type": "text"
+					},
+					{
+						"key": "client_secret",
+						"value": "OOXE#$GGFG",
+						"type": "text"
+					},
+					{
+						"key": "grant_type",
+						"value": "password",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Complex logical expression\",\n    \"value\": \"(firstName == \\\"JOHN\\\" && salary < 100) OR (address != null && address.city == \\\"Washington\\\")\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/eaetirk/expressionEvaluator/v1/expression",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"eaetirk",
+						"expressionEvaluator",
+						"v1",
+						"expression"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "wise",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "wise",
+								"type": "text"
+							},
+							{
+								"key": "client_id",
+								"value": "eaetirk",
+								"type": "text"
+							},
+							{
+								"key": "client_secret",
+								"value": "OOXE#$GGFG",
+								"type": "text"
+							},
+							{
+								"key": "grant_type",
+								"value": "password",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\n    \"name\": \"Complex logical expression\",\n    \"value\": \"(firstName == \\\"JOHN\\\" && salary < 100) OR (address != null && address.city == \\\"Washington\\\")\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/eaetirk/expressionEvaluator/v1/expression",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"eaetirk",
+								"expressionEvaluator",
+								"v1",
+								"expression"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Nov 2023 05:07:36 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Status\": 201,\n    \"Message\": \"Expression Successfully Created\",\n    \"Data\": {\n        \"id\": 1,\n        \"name\": \"Complex logical expression\",\n        \"value\": \"(firstName == \\\"JOHN\\\" && salary < 100) OR (address != null && address.city == \\\"Washington\\\")\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Save Expression invalid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var expression= JSON.parse(responseBody);",
+							"console.log(expression);",
+							"postman.setGlobalVariable(\"invalidExpression\", expression.Data.name);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "wise",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "wise",
+						"type": "text"
+					},
+					{
+						"key": "client_id",
+						"value": "eaetirk",
+						"type": "text"
+					},
+					{
+						"key": "client_secret",
+						"value": "OOXE#$GGFG",
+						"type": "text"
+					},
+					{
+						"key": "grant_type",
+						"value": "password",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Invalid logical expression\",\n    \"value\": \"firstName == \\\"JOHN\\\" && salary < 100 OR \"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/eaetirk/expressionEvaluator/v1/expression",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"eaetirk",
+						"expressionEvaluator",
+						"v1",
+						"expression"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "wise",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "wise",
+								"type": "text"
+							},
+							{
+								"key": "client_id",
+								"value": "eaetirk",
+								"type": "text"
+							},
+							{
+								"key": "client_secret",
+								"value": "OOXE#$GGFG",
+								"type": "text"
+							},
+							{
+								"key": "grant_type",
+								"value": "password",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\n    \"name\": \"Complex logical expression\",\n    \"value\": \"(firstName == \\\"JOHN\\\" && salary < 100) OR (address != null && address.city == \\\"Washington\\\")\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/eaetirk/expressionEvaluator/v1/expression",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"eaetirk",
+								"expressionEvaluator",
+								"v1",
+								"expression"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Nov 2023 05:07:36 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Status\": 201,\n    \"Message\": \"Expression Successfully Created\",\n    \"Data\": {\n        \"id\": 1,\n        \"name\": \"Complex logical expression\",\n        \"value\": \"(firstName == \\\"JOHN\\\" && salary < 100) OR (address != null && address.city == \\\"Washington\\\")\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Save Expression Simple Logical expression",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var expression= JSON.parse(responseBody);",
+							"console.log(expression);",
+							"postman.setGlobalVariable(\"simpleExpressionName\", expression.Data.name);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "wise",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "wise",
+						"type": "text"
+					},
+					{
+						"key": "client_id",
+						"value": "eaetirk",
+						"type": "text"
+					},
+					{
+						"key": "client_secret",
+						"value": "OOXE#$GGFG",
+						"type": "text"
+					},
+					{
+						"key": "grant_type",
+						"value": "password",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"name\": \"Logical Expression\",\n    \"value\": \"(firstName == \\\"JOHN\\\" && salary < 100) AND (address.city == \\\"Washington\\\")\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/eaetirk/expressionEvaluator/v1/expression",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"eaetirk",
+						"expressionEvaluator",
+						"v1",
+						"expression"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Save Expression Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "wise",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "wise",
+								"type": "text"
+							},
+							{
+								"key": "client_id",
+								"value": "eaetirk",
+								"type": "text"
+							},
+							{
+								"key": "client_secret",
+								"value": "OOXE#$GGFG",
+								"type": "text"
+							},
+							{
+								"key": "grant_type",
+								"value": "password",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\n    \"name\": \"Logical Expression\",\n    \"value\": \"(firstName == \\\"JOHN\\\" && salary < 100) AND (address.city == \\\"Washington\\\")\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/eaetirk/expressionEvaluator/v1/expression",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"eaetirk",
+								"expressionEvaluator",
+								"v1",
+								"expression"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Nov 2023 05:10:47 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Status\": 201,\n    \"Message\": \"Expression Successfully Created\",\n    \"Data\": {\n        \"id\": 3,\n        \"name\": \"Logical Expression\",\n        \"value\": \"(firstName == \\\"JOHN\\\" && salary < 100) AND (address.city == \\\"Washington\\\")\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Evaluate Expression with city Chicago",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "wise",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "wise",
+						"type": "text"
+					},
+					{
+						"key": "client_id",
+						"value": "eaetirk",
+						"type": "text"
+					},
+					{
+						"key": "client_secret",
+						"value": "OOXE#$GGFG",
+						"type": "text"
+					},
+					{
+						"key": "grant_type",
+						"value": "password",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{expressionName}}\",\n    \"customer\": {\n        \"firstName\": \"JOHN\",\n        \"lastName\": \"DOE\",\n        \"address\": {\n            \"city\": \"Chicago\",\n            \"zipCode\": 1234,\n            \"street\": \"56th\",\n            \"houseNumber\": 2345\n        },\n        \"salary\": 99,\n        \"type\": \"BUSINESS\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/eaetirk/expressionEvaluator/v1/evaluate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"eaetirk",
+						"expressionEvaluator",
+						"v1",
+						"evaluate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Save Expression Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "wise",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "wise",
+								"type": "text"
+							},
+							{
+								"key": "client_id",
+								"value": "eaetirk",
+								"type": "text"
+							},
+							{
+								"key": "client_secret",
+								"value": "OOXE#$GGFG",
+								"type": "text"
+							},
+							{
+								"key": "grant_type",
+								"value": "password",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{expressionName}}\",\n    \"customer\": {\n        \"firstName\": \"JOHN\",\n        \"lastName\": \"DOE\",\n        \"address\": {\n            \"city\": \"Chicago\",\n            \"zipCode\": 1234,\n            \"street\": \"56th\",\n            \"houseNumber\": 2345\n        },\n        \"salary\": 99,\n        \"type\": \"BUSINESS\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/eaetirk/expressionEvaluator/v1/evaluate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"eaetirk",
+								"expressionEvaluator",
+								"v1",
+								"evaluate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Nov 2023 05:07:57 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"isExpressionValid\": false,\n    \"expressionResult\": {\n        \"firstName\": \"JOHN\",\n        \"lastName\": \"DOE\",\n        \"address\": {\n            \"city\": \"Chicago\",\n            \"zipCode\": 1234,\n            \"street\": \"56th\",\n            \"houseNumber\": 2345\n        },\n        \"salary\": 99,\n        \"type\": \"BUSINESS\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Evaluate Expression with city Chicago Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "wise",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "wise",
+						"type": "text"
+					},
+					{
+						"key": "client_id",
+						"value": "eaetirk",
+						"type": "text"
+					},
+					{
+						"key": "client_secret",
+						"value": "OOXE#$GGFG",
+						"type": "text"
+					},
+					{
+						"key": "grant_type",
+						"value": "password",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{simpleExpressionName}}\",\n    \"customer\": {\n        \"firstName\": \"JOHN\",\n        \"lastName\": \"DOE\",\n        \"address\": {\n            \"city\": \"Chicago\",\n            \"zipCode\": 1234,\n            \"street\": \"56th\",\n            \"houseNumber\": 2345\n        },\n        \"salary\": 99,\n        \"type\": \"BUSINESS\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/eaetirk/expressionEvaluator/v1/evaluate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"eaetirk",
+						"expressionEvaluator",
+						"v1",
+						"evaluate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Evaluate Expression with city Chicago Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "wise",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "wise",
+								"type": "text"
+							},
+							{
+								"key": "client_id",
+								"value": "eaetirk",
+								"type": "text"
+							},
+							{
+								"key": "client_secret",
+								"value": "OOXE#$GGFG",
+								"type": "text"
+							},
+							{
+								"key": "grant_type",
+								"value": "password",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{simpleExpressionName}}\",\n    \"customer\": {\n        \"firstName\": \"JOHN\",\n        \"lastName\": \"DOE\",\n        \"address\": {\n            \"city\": \"Chicago\",\n            \"zipCode\": 1234,\n            \"street\": \"56th\",\n            \"houseNumber\": 2345\n        },\n        \"salary\": 99,\n        \"type\": \"BUSINESS\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/eaetirk/expressionEvaluator/v1/evaluate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"eaetirk",
+								"expressionEvaluator",
+								"v1",
+								"evaluate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Nov 2023 05:11:01 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"isExpressionValid\": false,\n    \"expressionResult\": {\n        \"firstName\": \"JOHN\",\n        \"lastName\": \"DOE\",\n        \"address\": {\n            \"city\": \"Chicago\",\n            \"zipCode\": 1234,\n            \"street\": \"56th\",\n            \"houseNumber\": 2345\n        },\n        \"salary\": 99,\n        \"type\": \"BUSINESS\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Evaluate Expression with City Washingon",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "wise",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "wise",
+						"type": "text"
+					},
+					{
+						"key": "client_id",
+						"value": "eaetirk",
+						"type": "text"
+					},
+					{
+						"key": "client_secret",
+						"value": "OOXE#$GGFG",
+						"type": "text"
+					},
+					{
+						"key": "grant_type",
+						"value": "password",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{expressionName}}\",\n    \"customer\": {\n        \"firstName\": \"JOHN\",\n        \"lastName\": \"DOE\",\n        \"address\": {\n            \"city\": \"Washington\",\n            \"zipCode\": 1234,\n            \"street\": \"56th\",\n            \"houseNumber\": 2345\n        },\n        \"salary\": 99,\n        \"type\": \"BUSINESS\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/eaetirk/expressionEvaluator/v1/evaluate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"eaetirk",
+						"expressionEvaluator",
+						"v1",
+						"evaluate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Evaluate Expression with City Washingon",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "wise",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "wise",
+								"type": "text"
+							},
+							{
+								"key": "client_id",
+								"value": "eaetirk",
+								"type": "text"
+							},
+							{
+								"key": "client_secret",
+								"value": "OOXE#$GGFG",
+								"type": "text"
+							},
+							{
+								"key": "grant_type",
+								"value": "password",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{expressionName}}\",\n    \"customer\": {\n        \"firstName\": \"JOHN\",\n        \"lastName\": \"DOE\",\n        \"address\": {\n            \"city\": \"Washington\",\n            \"zipCode\": 1234,\n            \"street\": \"56th\",\n            \"houseNumber\": 2345\n        },\n        \"salary\": 99,\n        \"type\": \"BUSINESS\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/eaetirk/expressionEvaluator/v1/evaluate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"eaetirk",
+								"expressionEvaluator",
+								"v1",
+								"evaluate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Nov 2023 05:08:03 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"isExpressionValid\": true,\n    \"expressionResult\": {\n        \"firstName\": \"JOHN\",\n        \"lastName\": \"DOE\",\n        \"address\": {\n            \"city\": \"Washington\",\n            \"zipCode\": 1234,\n            \"street\": \"56th\",\n            \"houseNumber\": 2345\n        },\n        \"salary\": 99,\n        \"type\": \"BUSINESS\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Evaluate Expression with City Washingon Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "wise",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "wise",
+						"type": "text"
+					},
+					{
+						"key": "client_id",
+						"value": "eaetirk",
+						"type": "text"
+					},
+					{
+						"key": "client_secret",
+						"value": "OOXE#$GGFG",
+						"type": "text"
+					},
+					{
+						"key": "grant_type",
+						"value": "password",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{simpleExpressionName}}\",\n    \"customer\": {\n        \"firstName\": \"JOHN\",\n        \"lastName\": \"DOE\",\n        \"address\": {\n            \"city\": \"Washington\",\n            \"zipCode\": 1234,\n            \"street\": \"56th\",\n            \"houseNumber\": 2345\n        },\n        \"salary\": 99,\n        \"type\": \"BUSINESS\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/eaetirk/expressionEvaluator/v1/evaluate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"eaetirk",
+						"expressionEvaluator",
+						"v1",
+						"evaluate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Evaluate Expression with City Washingon Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "wise",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "wise",
+								"type": "text"
+							},
+							{
+								"key": "client_id",
+								"value": "eaetirk",
+								"type": "text"
+							},
+							{
+								"key": "client_secret",
+								"value": "OOXE#$GGFG",
+								"type": "text"
+							},
+							{
+								"key": "grant_type",
+								"value": "password",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{simpleExpressionName}}\",\n    \"customer\": {\n        \"firstName\": \"JOHN\",\n        \"lastName\": \"DOE\",\n        \"address\": {\n            \"city\": \"Washington\",\n            \"zipCode\": 1234,\n            \"street\": \"56th\",\n            \"houseNumber\": 2345\n        },\n        \"salary\": 99,\n        \"type\": \"BUSINESS\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/eaetirk/expressionEvaluator/v1/evaluate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"eaetirk",
+								"expressionEvaluator",
+								"v1",
+								"evaluate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Nov 2023 05:11:10 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"isExpressionValid\": true,\n    \"expressionResult\": {\n        \"firstName\": \"JOHN\",\n        \"lastName\": \"DOE\",\n        \"address\": {\n            \"city\": \"Washington\",\n            \"zipCode\": 1234,\n            \"street\": \"56th\",\n            \"houseNumber\": 2345\n        },\n        \"salary\": 99,\n        \"type\": \"BUSINESS\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Evaluate Expression with City Washingon Copy 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "wise",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "wise",
+						"type": "text"
+					},
+					{
+						"key": "client_id",
+						"value": "eaetirk",
+						"type": "text"
+					},
+					{
+						"key": "client_secret",
+						"value": "OOXE#$GGFG",
+						"type": "text"
+					},
+					{
+						"key": "grant_type",
+						"value": "password",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{invalidExpression}}\",\n    \"customer\": {\n        \"firstName\": \"JOHN\",\n        \"lastName\": \"DOE\",\n        \"address\": {\n            \"city\": \"Washington\",\n            \"zipCode\": 1234,\n            \"street\": \"56th\",\n            \"houseNumber\": 2345\n        },\n        \"salary\": 99,\n        \"type\": \"BUSINESS\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/eaetirk/expressionEvaluator/v1/evaluate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"eaetirk",
+						"expressionEvaluator",
+						"v1",
+						"evaluate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Evaluate Expression with City Washingon Copy 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "wise",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "wise",
+								"type": "text"
+							},
+							{
+								"key": "client_id",
+								"value": "eaetirk",
+								"type": "text"
+							},
+							{
+								"key": "client_secret",
+								"value": "OOXE#$GGFG",
+								"type": "text"
+							},
+							{
+								"key": "grant_type",
+								"value": "password",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{invalidExpression}}\",\n    \"customer\": {\n        \"firstName\": \"JOHN\",\n        \"lastName\": \"DOE\",\n        \"address\": {\n            \"city\": \"Washington\",\n            \"zipCode\": 1234,\n            \"street\": \"56th\",\n            \"houseNumber\": 2345\n        },\n        \"salary\": 99,\n        \"type\": \"BUSINESS\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/eaetirk/expressionEvaluator/v1/evaluate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"eaetirk",
+								"expressionEvaluator",
+								"v1",
+								"evaluate"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Nov 2023 05:29:23 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Message\": \"Error Evaluating Expression\",\n    \"Reason\": \"Expression is not Valid\",\n    \"Error Code\": \"500 INTERNAL_SERVER_ERROR\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actuator",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/eaetirk/expressionEvaluator/v1/actuator",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"eaetirk",
+						"expressionEvaluator",
+						"v1",
+						"actuator"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/eaetirk/expressionEvaluator/v1/actuator",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"eaetirk",
+								"expressionEvaluator",
+								"v1",
+								"actuator"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/vnd.spring-boot.actuator.v3+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 16 Nov 2023 08:00:52 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8080/eaetirk/expressionEvaluator/v1/actuator\",\n            \"templated\": false\n        },\n        \"health\": {\n            \"href\": \"http://localhost:8080/eaetirk/expressionEvaluator/v1/actuator/health\",\n            \"templated\": false\n        },\n        \"health-path\": {\n            \"href\": \"http://localhost:8080/eaetirk/expressionEvaluator/v1/actuator/health/{*path}\",\n            \"templated\": true\n        },\n        \"info\": {\n            \"href\": \"http://localhost:8080/eaetirk/expressionEvaluator/v1/actuator/info\",\n            \"templated\": false\n        },\n        \"prometheus\": {\n            \"href\": \"http://localhost:8080/eaetirk/expressionEvaluator/v1/actuator/prometheus\",\n            \"templated\": false\n        },\n        \"mappings\": {\n            \"href\": \"http://localhost:8080/eaetirk/expressionEvaluator/v1/actuator/mappings\",\n            \"templated\": false\n        }\n    }\n}"
+				}
+			]
+		}
+	]
+}
